@@ -14,7 +14,7 @@ const UpdateUserTable = ({ userInfo }) => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    fetch(`http://localhost:5000/updateInfo/${userInfo._id}`, {
+    fetch(`https://shrouded-headland-78650.herokuapp.com/updateInfo/${userInfo._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -25,7 +25,7 @@ const UpdateUserTable = ({ userInfo }) => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Your data has been deleted",
+            title: "Your data has been Updated",
             showConfirmButton: false,
             timer: 3000,
           });
@@ -39,8 +39,8 @@ const UpdateUserTable = ({ userInfo }) => {
 
   return (
     <>
-      <button onClick={() => setModalIsOpen(true)}>
-        <FaEdit />
+      <button onClick={() => setModalIsOpen(true)}  className="bg-green-500 text-white rounded-full p-1.5 text-sm">
+        <FaEdit/>
       </button>
       <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} >
                   <div className="col-md-12 w-4/12 mx-auto">
@@ -64,7 +64,7 @@ const UpdateUserTable = ({ userInfo }) => {
                       <input type="password" placeholder="Password" defaultValue={userInfo.password} {...register("password", {required: true})} className="border-2 border-current outline-none w-full p-2 mb-1.5"/>
                       {errors.password && <span className="text-red-500">This field is required</span>}
 
-                      <input className="outline-none w-full p-2 mb-1.5 text-white bg-black"  type="submit" value="Update User information" />
+                      <input className="outline-none w-full p-2 mb-1.5 text-white bg-black"  type="submit" value="Update User" />
                     </form>
                     <button className="outline-none w-full p-2 mb-1.5 text-white bg-black" onClick={() => setModalIsOpen(false)}>Close Edit</button>
                   </div>

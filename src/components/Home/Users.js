@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar"
 import { ImUsers } from "react-icons/im";
 import { useForm } from "react-hook-form";
@@ -7,9 +7,11 @@ import Swal from 'sweetalert2'
 
 const Users = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    
+  
 
     const onSubmit = (data, e) => {
-      fetch("http://localhost:5000/newUser", {
+      fetch("https://shrouded-headland-78650.herokuapp.com/newUser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

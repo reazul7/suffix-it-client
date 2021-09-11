@@ -5,6 +5,7 @@ const Contact = () => {
     return (
         <div>
             <Navbar/>
+            <h1 className="py-3 text-2xl font-mono font-bold text-center">Contact with Us</h1>
         </div>
     );
 };
